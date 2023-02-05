@@ -1,16 +1,30 @@
-import '../styles/globals.css'
+import { AppProps } from 'next/app';
+import Head from 'next/head';
+import { MantineProvider } from '@mantine/core';
+import { wrapper } from '../../store/store';
 
-import { Provider } from 'react-redux'
-import type { AppProps } from 'next/app'
+ function App(props: AppProps) {
+  const { Component, pageProps } = props;
 
-import { wrapper } from '../../store/store'
-
- function App({ Component, pageProps }: AppProps) {
   return (
-    
-      <Component {...pageProps} />
- 
-  )
+    <>
+      <Head>
+        <title>Page title</title>
+        <meta name="viewport" content="minimum-scale=1, initial-scale=1, width=device-width" />
+      </Head>
+
+      <MantineProvider
+        withGlobalStyles
+        withNormalizeCSS
+        theme={{
+          /** Put your mantine theme override here */
+          colorScheme: 'dark',
+        }}
+      >
+        <Component {...pageProps} />
+      </MantineProvider>
+    </>
+  );
 }
 
 export default wrapper.withRedux(App)

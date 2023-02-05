@@ -1,3 +1,4 @@
+import { Box } from '@mantine/core'
 import type { NextPage } from 'next'
 import Head from 'next/head'
 import { mainActions } from '../../reducers'
@@ -18,7 +19,7 @@ export const getServerSideProps = wrapper.getServerSideProps(({ dispatch }) => a
 const IndexPage: NextPage = () => {
   const appName = useAppSelector((state)=> state.MainReducer.appName)
   return (
-    <div className={styles.container}>
+    <Box className={styles.container}>
       <Head>
         <title>App Template</title>
         <link rel="icon" href="/favicon.ico" />
@@ -27,8 +28,11 @@ const IndexPage: NextPage = () => {
         <p>
          {appName}
         </p>
+        <p>
+         Mantine Template
+        </p>
       </header>
-    </div>
+    </Box>
   )
 }
 
