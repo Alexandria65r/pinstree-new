@@ -1,11 +1,13 @@
-import { Box, Title } from '@mantine/core'
-import type { NextPage } from 'next'
+
+
+import { Box, createStyles } from '@mantine/core'
+
 import Head from 'next/head'
 import { mainActions } from '../../reducers'
 import { useAppSelector } from '../../store/hooks'
 import { wrapper } from '../../store/store'
 import Layout from '../components/layout'
-import styles from '../styles/Home.module.css'
+import PinCard from '../components/pin-card'
 
 export const getServerSideProps = wrapper.getServerSideProps(({ dispatch }) => async (params) => {
   await dispatch(mainActions.setAppName('LEEFTUP WEB SERVICES'))
@@ -17,18 +19,34 @@ export const getServerSideProps = wrapper.getServerSideProps(({ dispatch }) => a
 })
 
 
-const IndexPage: NextPage = () => {
-  const appName = useAppSelector((state) => state.MainReducer.appName)
-  return (<Layout>
-    <Box className={styles.container}>
-      <Head>
-        <title>Pinstree</title>
-        <link rel="icon" href="/favicon.ico" />
-      </Head>
-      <Title order={1}> pinstree🎉</Title>
-    </Box>
+const useStyles = createStyles((theme) => ({
+  Container: {
+    marginTop: 10,
+  },
 
-  </Layout>
+}))
+
+
+const IndexPage = () => {
+  const appName = useAppSelector((state) => state.MainReducer.appName)
+  const { classes } = useStyles()
+
+  const pinsList = [1, 2, 3, 4, 5, 6, 7]
+
+  return (
+    <Layout>
+      <Box className={classes.Container}>
+        <Head>
+          <title>Pinstree</title>
+          <link rel="icon" href="/favicon.ico" />
+        </Head>
+
+        {pinsList.map((pin, index) => (
+          <PinCard key={index} pin={pin} index={index} />
+        ))}
+      </Box>
+
+    </Layout>
   )
 }
 
