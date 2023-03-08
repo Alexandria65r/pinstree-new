@@ -4,6 +4,7 @@ import { Box, createStyles } from '@mantine/core'
 
 import Head from 'next/head'
 import { mainActions } from '../../reducers'
+import { Pin } from '../../reusable/interfaces'
 import { useAppSelector } from '../../store/hooks'
 import { wrapper } from '../../store/store'
 import Layout from '../components/layout'
@@ -21,7 +22,11 @@ export const getServerSideProps = wrapper.getServerSideProps(({ dispatch }) => a
 
 const useStyles = createStyles((theme) => ({
   Container: {
+   // width:'100%',
     marginTop: 10,
+    //display:'grid',
+    //gridTemplateColumns:'repeat(2,1fr)'
+    
   },
 
 }))
@@ -31,7 +36,12 @@ const IndexPage = () => {
   const appName = useAppSelector((state) => state.MainReducer.appName)
   const { classes } = useStyles()
 
-  const pinsList = [1, 2, 3, 4, 5, 6, 7]
+  const pinsList: Pin[] = [
+    { name: 'pin one', image: 'https://res.cloudinary.com/alexandriah65/image/upload/c_thumb,h_386,w_686/f_webp/v1/images/baew1an8rydsevv47bf2' },
+    { name: 'pin one', image:"https://res.cloudinary.com/alexandriah65/image/upload/c_thumb,h_386,w_686/f_webp/v1/images/wfljegjqsmjlnjgqjije"},
+    { name: 'pin one', image:"https://res.cloudinary.com/alexandriah65/image/upload/c_thumb,h_386,w_686/f_webp/v1/images/arcq31g7e7bugll8aeu1"},
+    { name: 'pin one', image:"https://res.cloudinary.com/alexandriah65/image/upload/c_thumb,h_386,w_686/f_webp/v1/images/fshlbfxsdwfwpy4fru9e"},
+  ]
 
   return (
     <Layout>
