@@ -9,6 +9,7 @@ import { useAppSelector } from '../../store/hooks'
 import { wrapper } from '../../store/store'
 import Layout from '../components/layout'
 import PinCard from '../components/pin-card'
+import RenderPins from '../components/render-pins'
 
 export const getServerSideProps = wrapper.getServerSideProps(({ dispatch }) => async (params) => {
   await dispatch(mainActions.setAppName('LEEFTUP WEB SERVICES'))
@@ -22,11 +23,11 @@ export const getServerSideProps = wrapper.getServerSideProps(({ dispatch }) => a
 
 const useStyles = createStyles((theme) => ({
   Container: {
-   // width:'100%',
+    // width:'100%',
     marginTop: 10,
     //display:'grid',
     //gridTemplateColumns:'repeat(2,1fr)'
-    
+
   },
 
 }))
@@ -38,12 +39,12 @@ const IndexPage = () => {
 
   const pinsList: Pin[] = [
     { name: 'pin one', image: 'https://res.cloudinary.com/alexandriah65/image/upload/c_thumb,h_386,w_686/f_webp/v1/images/baew1an8rydsevv47bf2' },
-    { name: 'pin one', image:"https://res.cloudinary.com/alexandriah65/image/upload/c_thumb,h_386,w_686/f_webp/v1/images/wfljegjqsmjlnjgqjije"},
-    { name: 'pin one', image:"https://res.cloudinary.com/alexandriah65/image/upload/c_thumb,h_386,w_686/f_webp/v1/images/arcq31g7e7bugll8aeu1"},
-    { name: 'pin one', image:"https://res.cloudinary.com/alexandriah65/image/upload/c_thumb,h_386,w_686/f_webp/v1/images/fshlbfxsdwfwpy4fru9e"},
-    { name: 'pin one', image:"https://res.cloudinary.com/alexandriah65/image/upload/c_thumb,h_386,w_686/f_webp/v1/images/bzdj2vamncfuoujzlhdi"},
-    { name: 'pin one', image:"https://res.cloudinary.com/alexandriah65/image/upload/c_thumb,h_386,w_686/f_webp/v1/images/pqzcpnwckt7htq1eoo73"},
-    { name: 'pin one', image:"https://res.cloudinary.com/alexandriah65/image/upload/c_thumb,h_386,w_686/f_webp/v1/images/uqqqkopg4clwevpwsuzu"},
+    { name: 'pin one', image: "https://res.cloudinary.com/alexandriah65/image/upload/c_thumb,h_386,w_686/f_webp/v1/images/wfljegjqsmjlnjgqjije" },
+    { name: 'pin one', image: "https://res.cloudinary.com/alexandriah65/image/upload/c_thumb,h_386,w_686/f_webp/v1/images/arcq31g7e7bugll8aeu1" },
+    { name: 'pin one', image: "https://res.cloudinary.com/alexandriah65/image/upload/c_thumb,h_386,w_686/f_webp/v1/images/fshlbfxsdwfwpy4fru9e" },
+    { name: 'pin one', image: "https://res.cloudinary.com/alexandriah65/image/upload/c_thumb,h_386,w_686/f_webp/v1/images/bzdj2vamncfuoujzlhdi" },
+    { name: 'pin one', image: "https://res.cloudinary.com/alexandriah65/image/upload/c_thumb,h_386,w_686/f_webp/v1/images/pqzcpnwckt7htq1eoo73" },
+    { name: 'pin one', image: "https://res.cloudinary.com/alexandriah65/image/upload/c_thumb,h_386,w_686/f_webp/v1/images/uqqqkopg4clwevpwsuzu" },
   ]
 
   return (
@@ -53,10 +54,7 @@ const IndexPage = () => {
           <title>Pinstree</title>
           <link rel="icon" href="/favicon.ico" />
         </Head>
-
-        {pinsList.map((pin, index) => (
-          <PinCard key={index} pin={pin} index={index} />
-        ))}
+        <RenderPins pins={pinsList} />
       </Box>
 
     </Layout>

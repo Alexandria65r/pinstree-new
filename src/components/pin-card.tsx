@@ -13,6 +13,7 @@ import { Pin } from '../../reusable/interfaces'
 import Avatar from './avatar'
 import { MdAdd } from 'react-icons/md'
 import { FiShare } from 'react-icons/fi'
+import Link from 'next/link'
 
 
 const useStyles = createStyles((theme) => ({
@@ -89,10 +90,12 @@ const PinCard = ({ pin, index }: Props) => {
         <Box className={classes.PinCard}>
             <Box className={classes.InnerCardGroup}>
                 <Box className={classes.PinImage} sx={{ order: isOdd(index) ? 1 : 2 }}>
-                    <Image cloudName="alexandria65" publicId={pin.image} style={{ width: '100%', height: '100%', borderRadius: 20 }} >
-                        <Transformation width="686" height="386" crop="thumb" />
-                        <Transformation fetchFormat="webp" />
-                    </Image>
+                    <Link href="pin/pin-id">
+                        <Image cloudName="alexandria65" publicId={pin.image} style={{ width: '100%', height: '100%', borderRadius: 20 }} >
+                            <Transformation width="686" height="386" crop="thumb" />
+                            <Transformation fetchFormat="webp" />
+                        </Image>
+                    </Link>
                 </Box>
                 <Box className={classes.PinBody} sx={{ order: isEven(index) ? 2 : 1 }}>
                     <Avatar />
@@ -103,7 +106,7 @@ const PinCard = ({ pin, index }: Props) => {
                         onBlur={() => setIsFocused(false)}
                         sx={{ width: 53, height: 53, backgroundColor: '#e2e6ea' }}
                         className={classes.AddPinButton}
-                        //variant="gradient"
+                    //variant="gradient"
                     >
                         <FiShare size={20} />
                     </ActionIcon>
@@ -113,7 +116,7 @@ const PinCard = ({ pin, index }: Props) => {
                         onBlurCapture={() => setIsFocused(false)}
                         onBlur={() => setIsFocused(false)}
                         sx={{ width: 53, height: 53, }}
-                          variant="gradient"
+                        variant="gradient"
                         className={classes.AddPinButton}
                     >
                         <MdAdd size={23} />
