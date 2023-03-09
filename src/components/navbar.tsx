@@ -9,8 +9,9 @@ const useStyles = createStyles((theme) => ({
         alignItems: 'center',
         height: 66,
         paddingInline: 40,
-        backgroundColor: '#fffff',
+        backgroundColor: '#ffffff',
         boxShadow: `0 1px 3px 0 ${theme.colors.gray[4]}`,
+        
         [theme.fn.smallerThan('sm')]:{
             height: 60,
         }

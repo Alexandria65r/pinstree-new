@@ -41,6 +41,9 @@ const IndexPage = () => {
     { name: 'pin one', image:"https://res.cloudinary.com/alexandriah65/image/upload/c_thumb,h_386,w_686/f_webp/v1/images/wfljegjqsmjlnjgqjije"},
     { name: 'pin one', image:"https://res.cloudinary.com/alexandriah65/image/upload/c_thumb,h_386,w_686/f_webp/v1/images/arcq31g7e7bugll8aeu1"},
     { name: 'pin one', image:"https://res.cloudinary.com/alexandriah65/image/upload/c_thumb,h_386,w_686/f_webp/v1/images/fshlbfxsdwfwpy4fru9e"},
+    { name: 'pin one', image:"https://res.cloudinary.com/alexandriah65/image/upload/c_thumb,h_386,w_686/f_webp/v1/images/bzdj2vamncfuoujzlhdi"},
+    { name: 'pin one', image:"https://res.cloudinary.com/alexandriah65/image/upload/c_thumb,h_386,w_686/f_webp/v1/images/pqzcpnwckt7htq1eoo73"},
+    { name: 'pin one', image:"https://res.cloudinary.com/alexandriah65/image/upload/c_thumb,h_386,w_686/f_webp/v1/images/uqqqkopg4clwevpwsuzu"},
   ]
 
   return (
