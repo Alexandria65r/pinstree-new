@@ -1,0 +1,4 @@
+
+
+
+declare module 'cloudinary-react'

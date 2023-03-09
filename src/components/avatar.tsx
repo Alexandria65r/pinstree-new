@@ -7,7 +7,7 @@ import { wrapper } from '../../store/store'
 import Layout from '../components/layout'
 import styles from '../styles/Home.module.css'
 
-import { Image, Transformation } from 'cloudinary-react'
+
 import { Pin } from '../../reusable/interfaces'
 
 
