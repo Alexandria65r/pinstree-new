@@ -59,10 +59,8 @@ const useStyles = createStyles((theme) => ({
         fontSize: 16,
         fontWeight: 600,
         padding: '0 10px',
-        height: 50,
-        //  width: 50,
-        //borderRadius: '50%'
-        //transform: 'rotate(90deg)',
+        width: 53,
+         height: 53,
         borderRadius: 20,
         transition: '0.3s all'
     },
@@ -104,7 +102,7 @@ const PinCard = ({ pin, index }: Props) => {
                         onFocus={() => setIsFocused(true)}
                         onBlurCapture={() => setIsFocused(false)}
                         onBlur={() => setIsFocused(false)}
-                        sx={{ width: 53, height: 53, backgroundColor: '#e2e6ea' }}
+                        sx={{ backgroundColor: '#e2e6ea' }}
                         className={classes.AddPinButton}
                     //variant="gradient"
                     >
@@ -115,7 +113,7 @@ const PinCard = ({ pin, index }: Props) => {
                         onFocus={() => setIsFocused(true)}
                         onBlurCapture={() => setIsFocused(false)}
                         onBlur={() => setIsFocused(false)}
-                        sx={{ width: 53, height: 53, }}
+                       
                         variant="gradient"
                         className={classes.AddPinButton}
                     >

@@ -3,6 +3,7 @@ import Head from 'next/head';
 import { MantineProvider } from '@mantine/core';
 import { wrapper } from '../../store/store';
 import '../styles/globals.css'
+import { rtlCache } from '../../mantine/rtl-cache';
 
  function App(props: AppProps) {
   const { Component, pageProps } = props;
@@ -17,6 +18,7 @@ import '../styles/globals.css'
       <MantineProvider
         withGlobalStyles
         withNormalizeCSS
+        emotionCache={rtlCache}
         theme={{
           /** Put your mantine theme override here */
           colorScheme: 'light',
