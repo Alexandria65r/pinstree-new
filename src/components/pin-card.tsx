@@ -1,5 +1,5 @@
 import { useState, useRef, MutableRefObject } from 'react'
-import { Box, Button, createStyles, Group, Text, Title } from '@mantine/core'
+import { Box, Button, ActionIcon, createStyles, Group, Text, Title } from '@mantine/core'
 import type { NextPage } from 'next'
 import Head from 'next/head'
 import { mainActions } from '../../reducers'
@@ -12,6 +12,7 @@ import { Image, Transformation } from 'cloudinary-react';
 import { Pin } from '../../reusable/interfaces'
 import Avatar from './avatar'
 import { MdAdd } from 'react-icons/md'
+import { FiShare } from 'react-icons/fi'
 
 
 const useStyles = createStyles((theme) => ({
@@ -20,7 +21,7 @@ const useStyles = createStyles((theme) => ({
     },
     PinCard: {
         height: 180,
-        margin: 5,
+        margin: 8,
         //backgroundColor: '#fff',
         borderRadius: 20,
         // boxShadow: `0 1px 5px 0 ${theme.colors.gray[3]}`
@@ -29,7 +30,7 @@ const useStyles = createStyles((theme) => ({
     InnerCardGroup: {
         width: '100%',
         display: 'flex',
-        gap: 5
+        gap: 8
     },
 
     PinImage: {
@@ -56,12 +57,16 @@ const useStyles = createStyles((theme) => ({
     AddPinButton: {
         fontSize: 16,
         fontWeight: 600,
+        padding: '0 10px',
         height: 50,
         //  width: 50,
         //borderRadius: '50%'
-        transform: 'rotate(90deg)',
+        //transform: 'rotate(90deg)',
         borderRadius: 20,
         transition: '0.3s all'
+    },
+    LeftIcon: {
+        margin: 0
     }
 }))
 
@@ -91,14 +96,29 @@ const PinCard = ({ pin, index }: Props) => {
                 </Box>
                 <Box className={classes.PinBody} sx={{ order: isEven(index) ? 2 : 1 }}>
                     <Avatar />
-                    <Button
-                     onFocus={() => setIsFocused(true)}
+                    <ActionIcon
+
+                        onFocus={() => setIsFocused(true)}
                         onBlurCapture={() => setIsFocused(false)}
                         onBlur={() => setIsFocused(false)}
-                        leftIcon={<MdAdd size={20} />}
-                        variant="gradient" className={classes.AddPinButton} >
-                        <Text sx={{ transform: isFocused ? 'rotate(0deg)' : 'rotate(-90deg)', }}>Pin</Text>
-                    </Button>
+                        sx={{ width: 53, height: 53, backgroundColor: '#e2e6ea' }}
+                        className={classes.AddPinButton}
+                        //variant="gradient"
+                    >
+                        <FiShare size={20} />
+                    </ActionIcon>
+                    <ActionIcon
+
+                        onFocus={() => setIsFocused(true)}
+                        onBlurCapture={() => setIsFocused(false)}
+                        onBlur={() => setIsFocused(false)}
+                        sx={{ width: 53, height: 53, }}
+                          variant="gradient"
+                        className={classes.AddPinButton}
+                    >
+                        <MdAdd size={23} />
+                    </ActionIcon>
+
                 </Box>
             </Box>
         </Box>
