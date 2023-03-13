@@ -68,7 +68,7 @@ export default function PinDetail({ }: Props) {
     return (
         <Box className={classes.Container}>
             <Box className={classes.PinImage}>
-                <Image cloudName="alexandria65" className={classes.Image} publicId={pinsList[0].image}>
+                <Image cloudName="alexandria65" className={classes.Image} publicId={pinsList[1].image}>
                     <Transformation width="686" height="386" crop="thumb" />
                 </Image>
             </Box>
